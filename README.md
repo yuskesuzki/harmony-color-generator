@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harmony Color Generator
 
-## Getting Started
+カラーピッカー、および、グラデーションの生成ツールです。
 
-First, run the development server:
+利用者が選択した色に対し、色彩調和のロジックを用いて、選択色に調和する色を探しやすくすることを目的としています。
+生成したパレットを元に、グラデーションを生成できます。
+
+Next.js、および、Tailwind CSSをベースに、AIを用いたコーディング支援を利用しています。
+
+## 主な機能 (Features)
+
+### 1. カラー＆調和 (Color & Harmony)
+- カラーホイールから欲しい色をパレットに選択。
+- スポイトを用いて、画面上の色を抽出することもできます（対応ブラウザのみ）。
+- 色彩調和ボタンを使うことで、同一色相、隣接色相、ダイアード、トライアド、テトラードなど、色彩理論に基づいたパレットをワンクリックで生成します。
+- 遺伝的アルゴリズムを用いてた処理により、選択職に調和する色をランダムに生成することができます
+- パレットは一時保存し、必要に応じて再割当てできます（ブラウザをリロードすると履歴は消えます）
+
+### 2. グラデーション＆抽出 (Gradient & Extraction)
+- パレットに保存した色を、2〜4色選択することで、グラデーションを生成します。
+- 線形グラデーション（2〜3色）および、複雑に混ざり合うメッシュグラデーション（4色）を動的に生成。
+- グラデーションパネル上で「始点」と「終点」をクリックして線を引くことで、その直線上から等間隔の8つのポイントから中間色を抽出できます。
+- グラデーションから抽出した中間色を一時保存することができます（ブラウザをリロードすると履歴は消えます）
+
+## 技術スタック
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, React 18)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+
+## インストールと起動 (Installation & Usage)
+
+ローカル環境で動かすための手順です。Node.js がインストールされていることを確認してください。
 
 ```bash
+# リポジトリのクローン
+git clone git@github.com:yuskesuzki/harmony-color-generator.git
+cd harmony-color-generator
+
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動 (http://localhost:3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
