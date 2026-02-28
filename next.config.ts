@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/harmony-color-generator",
 };
 
 export default nextConfig;
